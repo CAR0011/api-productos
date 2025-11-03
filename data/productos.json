@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "nombre": "Teclado mecanico",
+    "precio": 27.5,
+    "descripcion": "Teclado mecanico retroiluminado switch azul",
+    "disponible": false,
+    "fecha_ingreso": "2025-11-01T12:00:00.000Z"
+  }
+]

@@ -1,0 +1,59 @@
+@baseUrl = http://localhost:3000
+@json = application/json
+
+###
+# 1) Comprobar que la API funciona (raíz)
+GET {{baseUrl}}/
+
+###
+# 2) Listar todos los productos
+GET {{baseUrl}}/productos
+
+###
+# 3) Listar solo los disponibles
+GET {{baseUrl}}/productos/disponibles
+
+###
+# 4) Obtener un producto por ID (cambia el número si no existe)
+GET {{baseUrl}}/productos/1
+
+###
+# 5) Crear un producto (válido)
+POST {{baseUrl}}/productos
+Content-Type: {{json}}
+
+{
+  "nombre": "Audifonos bluetooth",
+  "precio": 25.9,
+  "descripcion": "Audifonos TWS con estuche de carga",
+  "disponible": true
+}
+
+###
+# 6) Crear un producto inválido (debe fallar)
+POST {{baseUrl}}/productos
+Content-Type: {{json}}
+
+{
+  "precio": 10,
+  "descripcion": "Muy corto",
+  "disponible": true
+}
+
+###
+# 7) Actualizar parcialmente (asegúrate que el id exista)
+PUT {{baseUrl}}/productos/1
+Content-Type: {{json}}
+
+{
+  "precio": 27.5,
+  "disponible": false
+}
+
+###
+# 8) Eliminar un producto (usa un id existente)
+DELETE {{baseUrl}}/productos/2
+
+###
+# 9) Ver el listado final
+GET {{baseUrl}}/productos
